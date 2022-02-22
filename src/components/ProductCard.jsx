@@ -33,6 +33,7 @@ export default function ProductCard(props) {
             <Grid container spacing={2}>
               <Grid item xs={2}>
                 <img style={{ height: "100px" }} src={product.image} />
+                
 
                 {/* <Carousel className = "car">
                   <Card>
