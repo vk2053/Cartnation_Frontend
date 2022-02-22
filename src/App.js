@@ -7,6 +7,7 @@ import Error404 from "./components/Error404";
 import Thanku from "./components/Thanku";
 import PlaceOrder from "./components/PlaceOrder";
 import PlaceCard from "./components/PlaceCard";
+import Price from "./components/Price";
 
 const App = () => {
   return (
@@ -29,6 +30,9 @@ const App = () => {
         </Route>
         <Route path="/orderPlaced">
           <Thanku />
+        </Route>
+        <Route path="/price">
+          <Price />
         </Route>
         <Route component={Error404} />
       </Switch>

@@ -9,6 +9,7 @@
   font-family: "Poppins", sans-serif;
 }
 #container {
+  min-height: 1000px;
   height: 100%;
 }
 .main-div {
@@ -18,7 +19,6 @@
   justify-content: center;
 }
 .center-div {
-  margin-top: 20px;
   display: inline;
   align-items: flex-start;
 }
@@ -32,12 +32,15 @@
   display: inline;
   box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
 }
+.deliveryAddress {
+  margin-top: 20px;
+}
 .card {
   padding: 16px 24px;
   min-height: 72px;
   display: flex;
-  width: 800px;
   flex-direction: row !important;
+  border: none !important;
   align-items: flex-start;
 }
 #container h3 {
@@ -105,9 +108,26 @@
   cursor: pointer;
   text-transform: uppercase;
 }
+.addressh1 {
+  background-color: #2874f0;
+  padding: 15px 30px !important;
+  color: #fff !important;
+  font-size: 18px !important;
+}
+.deliveryAddress .number {
+  background-color: #fff;
+  top: -2%;
+  position: relative;
+}
+.name span {
+  font-size: 20px;
+}
+.pinCode span{
+  font-size: 20px;
+}
 .navlink {
-  margin-top: 300px;
-  margin-left: 500px !important;
+  margin-top: 30px;
+  margin-left: 550px !important;
   /* margin: auto auto; */
   border-radius: 40px !important;
 }

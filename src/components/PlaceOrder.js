@@ -4,9 +4,11 @@ import axios from "axios";
 import PlaceCard from "./PlaceCard";
 import Box from "@mui/material/Box";
 import { LinearProgress } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import Price from "./Price";
 
 const PlaceOrder = () => {
+  const history = useHistory();
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(true);
   const getData = async () => {
@@ -29,6 +31,9 @@ const PlaceOrder = () => {
   useEffect(() => {
     getData();
   }, []);
+  const addAddress = () => {
+    history.push("/contact");
+  };
   return (
     <>
       {load ? (
@@ -40,6 +45,12 @@ const PlaceOrder = () => {
           <div className="main-div">
             <div className="center-div">
               <div className="main-card">
+                <div className="deliveryAddress">
+                  <h3 className="addressh1">
+                    <span className="number">1</span>
+                    Delivery Address
+                  </h3>
+                </div>
                 {data.map((e) => {
                   return (
                     <>
@@ -47,10 +58,24 @@ const PlaceOrder = () => {
                     </>
                   );
                 })}
+                <div>
+                  <div className="addItemDiv"></div>
+                  <div className="addItem">
+                    <i
+                      className="fa fa-plus add-btn"
+                      title="Add Item"
+                      onClick={addAddress}
+                    ></i>
+                    Add a new address
+                  </div>
+                </div>
               </div>
             </div>
+            <Price />
           </div>
-          <NavLink to="orderPlaced" className='navlink'>Place Order</NavLink>
+          <NavLink to="orderPlaced" className="navlink">
+            CHECKOUT CONTINUE
+          </NavLink>
         </div>
       )}
     </>

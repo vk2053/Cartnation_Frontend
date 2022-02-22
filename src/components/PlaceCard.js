@@ -1,16 +1,17 @@
 import React from "react";
 import "./css/PlaceOrder.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import "./css/PlaceCard.css";
 
 const PlaceCard = (data) => {
+  const history = useHistory();
   const dataList = data.data;
-
+  const editAddress = () => {
+    history.push("/contact");
+  };
   return (
     <>
       <div className="card">
-        <h3>
-          <span className="number">1</span>
-        </h3>
         <div className="address">
           <div className="delivery">
             Delivery Address
@@ -30,16 +31,28 @@ const PlaceCard = (data) => {
           <div className="sub-address">
             <span>
               <span className="name">
-                {dataList.firstName} {dataList.lastName}
+                <span>{dataList.firstName} {dataList.lastName} {dataList.phone}</span> <br/>
               </span>
               <span>
                 {` ${dataList.village} ${dataList.distt} ${dataList.state} ${dataList.country} - `}
-                <span className="pinCode">{dataList.pinCode}</span>
+                <span className="pinCode"><span>{dataList.pinCode}</span></span>
               </span>
             </span>
           </div>
         </div>
-        <NavLink to="contact">change address</NavLink>
+        {/* <NavLink to="contact">change address</NavLink> */}
+        <div className="todo-btn">
+          <i
+            className="far fa-edit add-btn"
+            title="Edit Address"
+            onClick={editAddress}
+          ></i>
+          <i
+            className="far fa-trash-alt add-btn"
+            title="Delete Address"
+            // onClick={() => deleteItem(elem.id)}
+          ></i>
+        </div>
       </div>
     </>
   );
