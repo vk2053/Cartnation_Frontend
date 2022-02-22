@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
   border: "2px solid black",
-  marginBottom: "5px",
+  marginBottom: "5px", 
 }));
 
 export default function ProductCard(props) {
