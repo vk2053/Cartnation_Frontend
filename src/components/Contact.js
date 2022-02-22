@@ -1,14 +1,19 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import contact from "../images/address2.png";
 
 const Contact = () => {
+  const history = useHistory();
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
     phone: "",
-    email: "",
-    address: "",
-    message: "",
+    state: "",
+    village: "",
+    distt: "",
+    country: "",
+    pinCode: "",
   });
 
   let name, value;
@@ -22,9 +27,27 @@ const Contact = () => {
   // connect with firebase
   const submitData = async (event) => {
     event.preventDefault();
-    const { firstName, lastName, phone, email, address, message } = userData;
+    const {
+      firstName,
+      lastName,
+      phone,
+      state,
+      village,
+      distt,
+      country,
+      pinCode,
+    } = userData;
 
-    if (firstName && lastName && phone && email && address && message) {
+    if (
+      firstName &&
+      lastName &&
+      phone &&
+      state &&
+      village &&
+      distt &&
+      country &&
+      pinCode
+    ) {
       const res = fetch(
         "https://carttraction-11b9b-default-rtdb.firebaseio.com/address.json",
         {
@@ -36,9 +59,11 @@ const Contact = () => {
             firstName,
             lastName,
             phone,
-            email,
-            address,
-            message,
+            state,
+            village,
+            distt,
+            country,
+            pinCode,
           }),
         }
       );
@@ -48,11 +73,14 @@ const Contact = () => {
           firstName: "",
           lastName: "",
           phone: "",
-          email: "",
-          address: "",
-          message: "",
+          state: "",
+          village: "",
+          distt: "",
+          country: "",
+          pinCode: "",
         });
         alert("Data Stored");
+        history.push("/placeOrder");
       } else {
         alert("plz fill the data");
       }
@@ -64,7 +92,7 @@ const Contact = () => {
   return (
     <>
       <section className="contactus-section">
-        <h1 className="main-heading fw-bold">Add Delivery Address</h1>
+        <h1 className="main-heading fw-bold">Add Delivery country</h1>
         <div className="contact_container">
           <div className="row">
             <div className="col-12 col-lg-10 mx-auto">
@@ -107,7 +135,7 @@ const Contact = () => {
                     <div className="row">
                       <div className="col-12 col-lg-6 contact-input-feild">
                         <input
-                          type="text"
+                          type="number"
                           name="phone"
                           className="form-control"
                           placeholder="Phone Number"
@@ -118,10 +146,32 @@ const Contact = () => {
                       <div className="col-12 col-lg-6 contact-input-feild">
                         <input
                           type="text"
-                          name="email"
+                          name="state"
                           className="form-control"
-                          placeholder="Email ID"
-                          value={userData.email}
+                          placeholder="State"
+                          value={userData.state}
+                          onChange={postUserData}
+                        />
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-12 col-lg-6 contact-input-feild">
+                        <input
+                          type="text"
+                          name="village"
+                          className="form-control"
+                          placeholder="Village"
+                          value={userData.village}
+                          onChange={postUserData}
+                        />
+                      </div>
+                      <div className="col-12 col-lg-6 contact-input-feild">
+                        <input
+                          type="text"
+                          name="distt"
+                          className="form-control"
+                          placeholder="District"
+                          value={userData.distt}
                           onChange={postUserData}
                         />
                       </div>
@@ -130,10 +180,10 @@ const Contact = () => {
                       <div className="col-12 contact-input-feild">
                         <input
                           type="text"
-                          name="address"
+                          name="country"
                           className="form-control"
-                          placeholder="Add Address"
-                          value={userData.address}
+                          placeholder="Add Country"
+                          value={userData.country}
                           onChange={postUserData}
                         />
                       </div>
@@ -142,11 +192,11 @@ const Contact = () => {
                     <div className="row">
                       <div className="col-12 ">
                         <input
-                          type="text"
-                          name="message"
+                          type="number"
+                          name="pinCode"
                           className="form-control"
-                          placeholder="Bill Details"
-                          value={userData.message}
+                          placeholder="PIN CODE"
+                          value={userData.pinCode}
                           onChange={postUserData}
                         />
                       </div>

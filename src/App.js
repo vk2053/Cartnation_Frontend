@@ -4,6 +4,9 @@ import Signup from "./components/Signup";
 import { Route, Switch } from "react-router-dom";
 import Contact from "./components/Contact";
 import Error404 from "./components/Error404";
+import Thanku from "./components/Thanku";
+import PlaceOrder from "./components/PlaceOrder";
+import PlaceCard from "./components/PlaceCard";
 
 const App = () => {
   return (
@@ -17,6 +20,15 @@ const App = () => {
         </Route>
         <Route path="/contact">
           <Contact />
+        </Route>
+        <Route path="/placeOrder">
+          <PlaceOrder />
+        </Route>
+        <Route path="/placeCard">
+          <PlaceCard />
+        </Route>
+        <Route path="/orderPlaced">
+          <Thanku />
         </Route>
         <Route component={Error404} />
       </Switch>

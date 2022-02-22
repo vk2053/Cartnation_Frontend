@@ -9,13 +9,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-:root {
-  --bgcolor: #f1f5fd;
-  --primary-color: #6f5de7;
-  --text-color: #828286;
-  --main-text-color: #333333;
-}
-
 html {
   font-size: 62.5%;
 }
@@ -82,7 +75,6 @@ a {
 }
 
 .notfound a {
-  margin-top: 5rem;
   font-size: 14px;
   text-transform: uppercase;
   background: #189cf0;
@@ -107,8 +99,5 @@ a {
   }
   .notfound h2 {
     font-size: 26px !important;
-  }
-  .notfound a {
-    margin-top: 1rem !important;
   }
 }
